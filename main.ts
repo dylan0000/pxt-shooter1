@@ -65,8 +65,9 @@ controller.A.onEvent(ControllerButtonEvent.Repeated, function () {
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
-`, shoot1, Math.randomRange(0, 25), -150)
+`, shoot1, Math.randomRange(-10, 25), -150)
         shoot1.say("2x cannons", 500)
+        controller.configureRepeatEventDefaults(0, 50)
     } else {
         if (info.score() > 800) {
             projectile = sprites.createProjectileFromSprite(img`
@@ -107,8 +108,9 @@ controller.A.onEvent(ControllerButtonEvent.Repeated, function () {
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
-`, shoot1, Math.randomRange(0, 25), -150)
+`, shoot1, Math.randomRange(-10, 25), -150)
         shoot1.say("2x cannons", 500)
+        controller.configureRepeatEventDefaults(0, 50)
     } else {
         if (info.score() > 2500) {
             projectile = sprites.createProjectileFromSprite(img`
@@ -149,8 +151,9 @@ controller.A.onEvent(ControllerButtonEvent.Repeated, function () {
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
-`, shoot1, Math.randomRange(0, 25), -150)
+`, shoot1, Math.randomRange(-10, 25), -150)
         shoot1.say("2x cannons", 500)
+        controller.configureRepeatEventDefaults(0, 50)
     } else {
         if (info.score() > 2500) {
             projectile = sprites.createProjectileFromSprite(img`
@@ -191,8 +194,9 @@ controller.A.onEvent(ControllerButtonEvent.Repeated, function () {
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
-`, shoot1, Math.randomRange(0, 25), -150)
+`, shoot1, Math.randomRange(-10, 25), -150)
         shoot1.say("2x cannons", 500)
+        controller.configureRepeatEventDefaults(0, 50)
     } else {
         if (info.score() > 3700) {
             projectile = sprites.createProjectileFromSprite(img`
@@ -511,11 +515,11 @@ forever(function () {
     } else {
         controller.moveSprite(shoot1, 70, 0)
     }
-    if (info.score() >= 3000 && info.score() <= 3001) {
-        for (let index = 0; index < 1; index++) {
-            game.showLongText("You've reached 3000 score! Ramping up difficulty with some extra enemies", DialogLayout.Bottom)
-            for (let index = 0; index < 5; index++) {
-                gost2 = sprites.create(img`
+    if (info.score() >= 3000 && info.score() <= 3002) {
+        info.changeScoreBy(10)
+        game.showLongText("You've reached 3000 score! Ramping up difficulty with some extra enemies", DialogLayout.Bottom)
+        for (let index = 0; index < 5; index++) {
+            gost2 = sprites.create(img`
 . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . 
@@ -541,46 +545,15 @@ forever(function () {
 . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . 
 `, SpriteKind.enemy2)
-                gost2.setVelocity(0, 45)
-                gost2.setPosition(Math.randomRange(15, 105), Math.randomRange(10, 20))
-            }
-            for (let index = 0; index < 5; index++) {
-                gost1 = sprites.create(img`
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . f f f f . . . . . . . . . . 
-. . . . . . . . f f 1 1 1 1 f f . . . . . . . . 
-. . . . . . . f b 1 1 1 1 1 1 b f . . . . . . . 
-. . . . . . . f 1 1 1 1 1 1 1 1 f . . . . . . . 
-. . . . . . f d 1 1 1 1 1 1 1 1 d f . . . . . . 
-. . . . 7 . f d 1 1 1 1 1 1 1 1 d f . . . . . . 
-. . . 7 . . f d 1 1 1 1 1 1 1 1 d f . . . . . . 
-. . . 7 . . f d 1 1 1 1 1 1 1 1 d f . . . . . . 
-. . . 7 . . f d d d 1 1 1 1 d d d f f . . . . . 
-. . . 7 7 . f b d b f d d f b d b f c f . . . . 
-. . . 7 7 7 f c d c f 1 1 f c d c f b f . . . . 
-. . . . 7 7 f f f b d b 1 b d f f c f . . . . . 
-. . . . f c b 1 b c f f f f f f . . . . . . . . 
-. . . . f 1 c 1 c 1 f f f f f f . . . . . . . . 
-. . . . f d f d f d f f f f f . . . . . . . . . 
-. . . . . f . f . f . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-`, SpriteKind.Enemy)
-                gost1.setVelocity(0, 45)
-                gost1.setPosition(Math.randomRange(15, 105), Math.randomRange(10, 20))
-            }
+            gost2.setVelocity(0, 45)
+            gost2.setPosition(Math.randomRange(15, 105), Math.randomRange(10, 20))
         }
     }
-    if (info.score() >= 2000 && info.score() <= 2001) {
-        for (let index = 0; index < 1; index++) {
+    if (info.score() >= 2000 && info.score() <= 2002) {
+        info.changeScoreBy(10)
+        for (let index = 0; index < 5; index++) {
             game.showLongText("You've reached 2000 score! Ramping up difficulty with some extra enemies", DialogLayout.Bottom)
-            for (let index = 0; index < 5; index++) {
-                gost2 = sprites.create(img`
+            gost2 = sprites.create(img`
 . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . 
@@ -606,46 +579,14 @@ forever(function () {
 . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . 
 `, SpriteKind.enemy2)
-                gost2.setVelocity(0, 45)
-                gost2.setPosition(Math.randomRange(15, 105), Math.randomRange(10, 20))
-            }
-            for (let index = 0; index < 5; index++) {
-                gost1 = sprites.create(img`
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . f f f f . . . . . . . . . . 
-. . . . . . . . f f 1 1 1 1 f f . . . . . . . . 
-. . . . . . . f b 1 1 1 1 1 1 b f . . . . . . . 
-. . . . . . . f 1 1 1 1 1 1 1 1 f . . . . . . . 
-. . . . . . f d 1 1 1 1 1 1 1 1 d f . . . . . . 
-. . . . 7 . f d 1 1 1 1 1 1 1 1 d f . . . . . . 
-. . . 7 . . f d 1 1 1 1 1 1 1 1 d f . . . . . . 
-. . . 7 . . f d 1 1 1 1 1 1 1 1 d f . . . . . . 
-. . . 7 . . f d d d 1 1 1 1 d d d f f . . . . . 
-. . . 7 7 . f b d b f d d f b d b f c f . . . . 
-. . . 7 7 7 f c d c f 1 1 f c d c f b f . . . . 
-. . . . 7 7 f f f b d b 1 b d f f c f . . . . . 
-. . . . f c b 1 b c f f f f f f . . . . . . . . 
-. . . . f 1 c 1 c 1 f f f f f f . . . . . . . . 
-. . . . f d f d f d f f f f f . . . . . . . . . 
-. . . . . f . f . f . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-`, SpriteKind.Enemy)
-                gost1.setVelocity(0, 45)
-                gost1.setPosition(Math.randomRange(15, 105), Math.randomRange(10, 20))
-            }
+            gost2.setVelocity(0, 45)
+            gost2.setPosition(Math.randomRange(15, 105), Math.randomRange(10, 20))
         }
     }
-    if (info.score() >= 1000 && info.score() <= 1001) {
-        for (let index = 0; index < 1; index++) {
-            game.showLongText("You've reached 1000 score! Rewarding you with +1hp", DialogLayout.Bottom)
-            info.changeLifeBy(1)
-        }
+    if (info.score() >= 1000 && info.score() <= 1002) {
+        info.changeScoreBy(10)
+        game.showLongText("You've reached 1000 score! Rewarding you with +1hp", DialogLayout.Bottom)
+        info.changeLifeBy(1)
     }
 })
 game.onUpdateInterval(Math.randomRange(10000, 20000), function () {
