@@ -1,0 +1,19 @@
+{
+    "name": "shooter1",
+    "dependencies": {
+        "device": "*",
+        "darts": "*",
+        "color-coded-tilemap": "*",
+        "controller": "*"
+    },
+    "description": "",
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md"
+    ],
+    "preferredEditor": "blocksprj",
+    "testFiles": [
+        "test.ts"
+    ]
+}
