@@ -7,6 +7,102 @@ namespace SpriteKind {
     export const hp1 = SpriteKind.create()
     export const penta = SpriteKind.create()
 }
+function villain () {
+    for (let index = 0; index < 20; index++) {
+        gost1 = sprites.create(img`
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . f f f f . . . . . . . . . . 
+. . . . . . . . f f 1 1 1 1 f f . . . . . . . . 
+. . . . . . . f b 1 1 1 1 1 1 b f . . . . . . . 
+. . . . . . . f 1 1 1 1 1 1 1 1 f . . . . . . . 
+. . . . . . f d 1 1 1 1 1 1 1 1 d f . . . . . . 
+. . . . 7 . f d 1 1 1 1 1 1 1 1 d f . . . . . . 
+. . . 7 . . f d 1 1 1 1 1 1 1 1 d f . . . . . . 
+. . . 7 . . f d 1 1 1 1 1 1 1 1 d f . . . . . . 
+. . . 7 . . f d d d 1 1 1 1 d d d f f . . . . . 
+. . . 7 7 . f b d b f d d f b d b f c f . . . . 
+. . . 7 7 7 f c d c f 1 1 f c d c f b f . . . . 
+. . . . 7 7 f f f b d b 1 b d f f c f . . . . . 
+. . . . f c b 1 b c f f f f f f . . . . . . . . 
+. . . . f 1 c 1 c 1 f f f f f f . . . . . . . . 
+. . . . f d f d f d f f f f f . . . . . . . . . 
+. . . . . f . f . f . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+`, SpriteKind.Enemy)
+        gost1.setVelocity(0, 45)
+    }
+    for (let index = 0; index < 20; index++) {
+        gost2 = sprites.create(img`
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . f f f f . . . . . . . . . . 
+. . . . . . . . f f 1 1 1 1 f f . . . . . . . . 
+. . . . . . . f b 1 1 1 1 1 1 b f . . . . . . . 
+. . . . . f f f c 1 1 1 1 1 1 1 f . . . . . . . 
+. . . f c 1 1 1 c d 1 1 1 1 1 1 1 f . . . . . . 
+. . . f 1 b 1 b 1 b 1 1 1 1 d d d f . . . . . . 
+. . . f b f b f f c f 1 1 f c d d f . . . . . . 
+. . . . . . f c f 1 1 1 1 1 1 b b f . . . . . . 
+. . . . . . . c c b d b 1 b 1 f c f . . . . . . 
+. . . . . . . f f f b f b f d f f . . . . . . . 
+. . . . . . . . f f f f f f f f . . . . . . . . 
+. . . . . . . . f f f f f f f f f f f . . . . . 
+. . . . . . . . . f f f f f c 1 1 1 c f . . . . 
+. . . . . . . . . f f f f f 1 b 1 b 1 f . . . . 
+. . . . . . . . . . f f f f b f b f b f . . . . 
+. . . . . . . . . . . f f f f . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+`, SpriteKind.enemy2)
+        gost2.setVelocity(0, 45)
+    }
+    controller.configureRepeatEventDefaults(0, 50)
+}
+function hero () {
+    game.splash("space to shoot")
+    game.splash("left/right arrows to move")
+    shoot1 = sprites.create(img`
+. . . . . . 2 c c 2 . . . . . . 
+. . . . . . 2 c c 2 . . . . . . 
+. . . . . . 2 c c 2 . . . . . . 
+. . . . . 2 2 c c 2 2 . . . . . 
+. . 2 2 2 2 2 c c 2 2 2 2 2 . . 
+. . 2 2 2 2 2 c c 2 2 2 2 2 . . 
+. . 2 2 2 2 2 c c 2 2 2 2 2 . . 
+. . 2 2 f f f c c f f f 2 2 . . 
+. . 2 2 f f f f f f f f 2 2 . . 
+. . 2 2 f 2 f f f f 2 f 2 2 . . 
+. . 2 2 f f f f f f f f 2 2 . . 
+. . 2 2 f f f f f f f f 2 2 . . 
+. . 2 2 f f f f f f f f 2 2 . . 
+. . 2 2 f f f f f f f f 2 2 . . 
+. . 2 2 f 2 f f f f 2 f 2 2 . . 
+. . 2 2 f f f f f f f f 2 2 . . 
+`, SpriteKind.Player)
+    controller.moveSprite(shoot1, 100, 100)
+    info.setLife(1)
+    // position sprite beginning
+    shoot1.setPosition(50, 235)
+    scene.cameraFollowSprite(shoot1)
+}
+scene.onHitTile(SpriteKind.Enemy, 2, function (sprite) {
+    info.changeLifeBy(-1)
+    sprite.setPosition(Math.randomRange(15, 105), Math.randomRange(10, 20))
+})
+scene.onHitTile(SpriteKind.enemy2, 2, function (sprite) {
+    info.changeLifeBy(-1)
+    sprite.setPosition(Math.randomRange(15, 105), 10)
+})
 function score () {
     if (info.score() <= 500 && info.score() >= 200) {
         controller.moveSprite(shoot1, 200, 0)
@@ -228,310 +324,6 @@ f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
         info.changeLifeBy(1)
     }
 }
-function attack () {
-    if (controller.A.isPressed()) {
-        projectile = sprites.createProjectileFromSprite(img`
-. . . . . . f f f f . . . . . . 
-. . . . . . f 4 4 f . . . . . . 
-. . . . . . f 4 4 f . . . . . . 
-. . . . . . f f f f . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, shoot1, 0, -110)
-        if (info.score() >= 500 && info.score() <= 800) {
-            projectile2 = sprites.createProjectileFromSprite(img`
-. . . . . . f f f f . . . . . . 
-. . . . . . f 2 2 f . . . . . . 
-. . . . . . f 2 2 f . . . . . . 
-. . . . . . f f f f . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, shoot1, Math.randomRange(-15, 15), -115)
-            shoot1.say("2x cannons", 500)
-        } else {
-            if (info.score() > 800) {
-                projectile = sprites.createProjectileFromSprite(img`
-. . . . . . . 4 4 . . . . . . . 
-. . . . . . . 4 4 . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, shoot1, 0, -110)
-            }
-        }
-        if (info.score() >= 1000 && info.score() <= 1600) {
-            projectile2 = sprites.createProjectileFromSprite(img`
-. . . . . . f f f f . . . . . . 
-. . . . . . f 2 2 f . . . . . . 
-. . . . . . f 2 2 f . . . . . . 
-. . . . . . f f f f . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, shoot1, Math.randomRange(-20, 20), -115)
-            shoot1.say("2x cannons", 500)
-        } else {
-            if (info.score() > 2500) {
-                projectile = sprites.createProjectileFromSprite(img`
-. . . . . . . 4 4 . . . . . . . 
-. . . . . . . 4 4 . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, shoot1, 0, -110)
-            }
-        }
-        if (info.score() >= 2000 && info.score() <= 2500) {
-            projectile2 = sprites.createProjectileFromSprite(img`
-. . . . . . f f f f . . . . . . 
-. . . . . . f 2 2 f . . . . . . 
-. . . . . . f 2 2 f . . . . . . 
-. . . . . . f f f f . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, shoot1, Math.randomRange(-20, 20), -115)
-            shoot1.say("2x cannons", 500)
-        } else {
-            if (info.score() > 2500) {
-                projectile = sprites.createProjectileFromSprite(img`
-. . . . . . . 4 4 . . . . . . . 
-. . . . . . . 4 4 . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, shoot1, 0, -110)
-            }
-        }
-        if (info.score() >= 3000 && info.score() <= 3550) {
-            projectile2 = sprites.createProjectileFromSprite(img`
-. . . . . . f f f f . . . . . . 
-. . . . . . f 2 2 f . . . . . . 
-. . . . . . f 2 2 f . . . . . . 
-. . . . . . f f f f . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, shoot1, Math.randomRange(-20, 20), -115)
-            projectile2 = sprites.createProjectileFromSprite(img`
-. . . . . . f f f f . . . . . . 
-. . . . . . f 5 5 f . . . . . . 
-. . . . . . f 5 5 f . . . . . . 
-. . . . . . f f f f . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, shoot1, Math.randomRange(-20, 20), -115)
-            shoot1.say("3x cannons", 500)
-        } else {
-            if (info.score() > 3550) {
-                projectile = sprites.createProjectileFromSprite(img`
-. . . . . . . 4 4 . . . . . . . 
-. . . . . . . 4 4 . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, shoot1, 0, -110)
-            }
-        }
-    }
-}
-function villain () {
-    for (let index = 0; index < 20; index++) {
-        gost1 = sprites.create(img`
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . f f f f . . . . . . . . . . 
-. . . . . . . . f f 1 1 1 1 f f . . . . . . . . 
-. . . . . . . f b 1 1 1 1 1 1 b f . . . . . . . 
-. . . . . . . f 1 1 1 1 1 1 1 1 f . . . . . . . 
-. . . . . . f d 1 1 1 1 1 1 1 1 d f . . . . . . 
-. . . . 7 . f d 1 1 1 1 1 1 1 1 d f . . . . . . 
-. . . 7 . . f d 1 1 1 1 1 1 1 1 d f . . . . . . 
-. . . 7 . . f d 1 1 1 1 1 1 1 1 d f . . . . . . 
-. . . 7 . . f d d d 1 1 1 1 d d d f f . . . . . 
-. . . 7 7 . f b d b f d d f b d b f c f . . . . 
-. . . 7 7 7 f c d c f 1 1 f c d c f b f . . . . 
-. . . . 7 7 f f f b d b 1 b d f f c f . . . . . 
-. . . . f c b 1 b c f f f f f f . . . . . . . . 
-. . . . f 1 c 1 c 1 f f f f f f . . . . . . . . 
-. . . . f d f d f d f f f f f . . . . . . . . . 
-. . . . . f . f . f . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-`, SpriteKind.Enemy)
-        gost1.setVelocity(0, 45)
-    }
-    for (let index = 0; index < 20; index++) {
-        gost2 = sprites.create(img`
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . f f f f . . . . . . . . . . 
-. . . . . . . . f f 1 1 1 1 f f . . . . . . . . 
-. . . . . . . f b 1 1 1 1 1 1 b f . . . . . . . 
-. . . . . f f f c 1 1 1 1 1 1 1 f . . . . . . . 
-. . . f c 1 1 1 c d 1 1 1 1 1 1 1 f . . . . . . 
-. . . f 1 b 1 b 1 b 1 1 1 1 d d d f . . . . . . 
-. . . f b f b f f c f 1 1 f c d d f . . . . . . 
-. . . . . . f c f 1 1 1 1 1 1 b b f . . . . . . 
-. . . . . . . c c b d b 1 b 1 f c f . . . . . . 
-. . . . . . . f f f b f b f d f f . . . . . . . 
-. . . . . . . . f f f f f f f f . . . . . . . . 
-. . . . . . . . f f f f f f f f f f f . . . . . 
-. . . . . . . . . f f f f f c 1 1 1 c f . . . . 
-. . . . . . . . . f f f f f 1 b 1 b 1 f . . . . 
-. . . . . . . . . . f f f f b f b f b f . . . . 
-. . . . . . . . . . . f f f f . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-`, SpriteKind.enemy2)
-        gost2.setVelocity(0, 45)
-    }
-    controller.configureRepeatEventDefaults(0, 50)
-}
-function hero () {
-    game.splash("space to shoot")
-    game.splash("left/right arrows to move")
-    shoot1 = sprites.create(img`
-. . . . . . 2 c c 2 . . . . . . 
-. . . . . . 2 c c 2 . . . . . . 
-. . . . . . 2 c c 2 . . . . . . 
-. . . . . 2 2 c c 2 2 . . . . . 
-. . 2 2 2 2 2 c c 2 2 2 2 2 . . 
-. . 2 2 2 2 2 c c 2 2 2 2 2 . . 
-. . 2 2 2 2 2 c c 2 2 2 2 2 . . 
-. . 2 2 f f f c c f f f 2 2 . . 
-. . 2 2 f f f f f f f f 2 2 . . 
-. . 2 2 f 2 f f f f 2 f 2 2 . . 
-. . 2 2 f f f f f f f f 2 2 . . 
-. . 2 2 f f f f f f f f 2 2 . . 
-. . 2 2 f f f f f f f f 2 2 . . 
-. . 2 2 f f f f f f f f 2 2 . . 
-. . 2 2 f 2 f f f f 2 f 2 2 . . 
-. . 2 2 f f f f f f f f 2 2 . . 
-`, SpriteKind.Player)
-    controller.moveSprite(shoot1, 100, 100)
-    info.setLife(1)
-    // position sprite beginning
-    shoot1.setPosition(50, 235)
-    scene.cameraFollowSprite(shoot1)
-}
-scene.onHitTile(SpriteKind.Enemy, 2, function (sprite) {
-    info.changeLifeBy(-1)
-    sprite.setPosition(Math.randomRange(15, 105), Math.randomRange(10, 20))
-})
-scene.onHitTile(SpriteKind.enemy2, 2, function (sprite) {
-    info.changeLifeBy(-1)
-    sprite.setPosition(Math.randomRange(15, 105), 10)
-})
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.penta, function (sprite, otherSprite) {
     projectile2 = sprites.createProjectileFromSprite(img`
 . . . . . . f f f f . . . . . . 
@@ -761,6 +553,214 @@ c c c c c c c c c c c c c c c c
         value.place(protecthis2)
     }
 }
+function attack () {
+    if (controller.A.isPressed()) {
+        projectile = sprites.createProjectileFromSprite(img`
+. . . . . . f f f f . . . . . . 
+. . . . . . f 4 4 f . . . . . . 
+. . . . . . f 4 4 f . . . . . . 
+. . . . . . f f f f . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, shoot1, 0, -110)
+        if (info.score() >= 500 && info.score() <= 800) {
+            projectile2 = sprites.createProjectileFromSprite(img`
+. . . . . . f f f f . . . . . . 
+. . . . . . f 2 2 f . . . . . . 
+. . . . . . f 2 2 f . . . . . . 
+. . . . . . f f f f . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, shoot1, Math.randomRange(-15, 15), -115)
+            shoot1.say("2x cannons", 500)
+        } else {
+            if (info.score() > 800) {
+                projectile = sprites.createProjectileFromSprite(img`
+. . . . . . . 4 4 . . . . . . . 
+. . . . . . . 4 4 . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, shoot1, 0, -110)
+            }
+        }
+        if (info.score() >= 1000 && info.score() <= 1600) {
+            projectile2 = sprites.createProjectileFromSprite(img`
+. . . . . . f f f f . . . . . . 
+. . . . . . f 2 2 f . . . . . . 
+. . . . . . f 2 2 f . . . . . . 
+. . . . . . f f f f . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, shoot1, Math.randomRange(-20, 20), -115)
+            shoot1.say("2x cannons", 500)
+        } else {
+            if (info.score() > 2500) {
+                projectile = sprites.createProjectileFromSprite(img`
+. . . . . . . 4 4 . . . . . . . 
+. . . . . . . 4 4 . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, shoot1, 0, -110)
+            }
+        }
+        if (info.score() >= 2000 && info.score() <= 2500) {
+            projectile2 = sprites.createProjectileFromSprite(img`
+. . . . . . f f f f . . . . . . 
+. . . . . . f 2 2 f . . . . . . 
+. . . . . . f 2 2 f . . . . . . 
+. . . . . . f f f f . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, shoot1, Math.randomRange(-20, 20), -115)
+            shoot1.say("2x cannons", 500)
+        } else {
+            if (info.score() > 2500) {
+                projectile = sprites.createProjectileFromSprite(img`
+. . . . . . . 4 4 . . . . . . . 
+. . . . . . . 4 4 . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, shoot1, 0, -110)
+            }
+        }
+        if (info.score() >= 3000 && info.score() <= 3550) {
+            projectile2 = sprites.createProjectileFromSprite(img`
+. . . . . . f f f f . . . . . . 
+. . . . . . f 2 2 f . . . . . . 
+. . . . . . f 2 2 f . . . . . . 
+. . . . . . f f f f . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, shoot1, Math.randomRange(-20, 20), -115)
+            projectile2 = sprites.createProjectileFromSprite(img`
+. . . . . . f f f f . . . . . . 
+. . . . . . f 5 5 f . . . . . . 
+. . . . . . f 5 5 f . . . . . . 
+. . . . . . f f f f . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, shoot1, Math.randomRange(-20, 20), -115)
+            shoot1.say("3x cannons", 500)
+        } else {
+            if (info.score() > 3550) {
+                projectile = sprites.createProjectileFromSprite(img`
+. . . . . . . 4 4 . . . . . . . 
+. . . . . . . 4 4 . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, shoot1, 0, -110)
+            }
+        }
+    }
+}
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.enemy2, function (sprite, otherSprite) {
     otherSprite.setPosition(Math.randomRange(15, 105), Math.randomRange(10, 20))
     info.changeScoreBy(1)
@@ -821,11 +821,11 @@ let hp12: Sprite = null
 let proj5: Sprite = null
 let proj4: Sprite = null
 let proj3: Sprite = null
-let projectile2: Sprite = null
 let projectile: Sprite = null
-let gost1: Sprite = null
-let gost2: Sprite = null
+let projectile2: Sprite = null
 let shoot1: Sprite = null
+let gost2: Sprite = null
+let gost1: Sprite = null
 hero()
 startbackground()
 villain()
